@@ -1,0 +1,48 @@
+NPrint "hello"
+Print "hi print"
+;Stop ;debug window show
+;now we can step
+For i=1 To 3
+Print i,","
+Next
+
+NEWTYPE .xy_type
+x.f
+y.f
+z.f
+End NEWTYPE
+
+DEFTYPE .xy_type p1
+Stop
+p1\x = 0.1
+p1\y =  1.2
+p1\z = 10.6
+
+DEFTYPE .f af
+a=1.1
+
+
+NPrint "give float number="
+p1\y = Edit(10)
+
+NPrint "x=",p1\x,",y=",p1\y
+
+NPrint "a=",a
+
+nr_element=6
+
+Dim tab.f(nr_element)
+
+For i=0 To nr_element-1
+    Read tab(i)
+Next
+
+Data.f  2.3, 5.6, 6.7 , -8.9  , 0.0, 1.0
+
+
+
+
+MouseWait
+
+End
+

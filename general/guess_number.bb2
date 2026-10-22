@@ -1,0 +1,41 @@
+;read vpos line
+;b=Peek.w($dff006)
+;NPrint b
+
+
+no=Int(Rnd(100))
+
+
+NPrint no
+
+Repeat
+NPrint "welcome to guess number program"
+
+Print ">"
+Stop
+given=Edit(10)
+If given=no
+NPrint "you guess right!"
+Goto Finish
+Else
+If given>no
+ NPrint "you have given too much"
+Else
+NPrint "You have given too low"
+EndIf
+EndIf
+
+Print " again y/n? >"
+decision$=Edit$(10)
+
+Until decision$="n"
+
+
+
+Finish:
+
+
+waitmouse
+End
+
+
