@@ -3,39 +3,48 @@
 ;NPrint b
 
 
-no=Int(Rnd(100))
+no=Int(Rnd(100))+1
 
+tries_no.w=0
 
-NPrint no
-
-Repeat
+;NPrint no
 NPrint "welcome to guess number program"
 
-Print ">"
-Stop
-given=Edit(10)
-If given=no
-NPrint "you guess right!"
-Goto Finish
-Else
-If given>no
- NPrint "you have given too much"
-Else
-NPrint "You have given too low"
-EndIf
-EndIf
 
-Print " again y/n? >"
-decision$=Edit$(10)
 
-Until decision$="n"
+Repeat
+
+  Print "Your guess >"
+  given$=Edit$(10)
+
+  giv=Val(given$)
+
+  If given$="@t"
+    NPrint "hint: ",no
+  Else
+    If giv=0 AND given$<>"0" Then Goto Finish
+
+    If giv=no
+      NPrint "you guess right!"
+      Goto Finish
+    Else
+      If giv>no
+       NPrint "you have given too much"
+      Else
+      NPrint "You have given too low"
+  EndIf
+  EndIf
+  EndIf
+  Let tries_no.w+1
+
+Forever
 
 
 
 Finish:
+NPrint "@number of tries :",tries_no
 
 
 waitmouse
 End
-
 
