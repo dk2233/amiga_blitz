@@ -1,0 +1,28 @@
+NPrint "Represent as binary byte number"
+NPRINT "here max is -128 to 127"
+
+data_size=7
+For i=0 To data_size-1
+  Read a.b
+  NPrint a.b,": bin: ",Bin$(a), " hex: ", Hex$(a)
+Next i
+
+
+NPrint "Represent as binary long number"
+NPRINT ""
+
+Restore DATA_LONG
+
+For i=0 To data_size-1
+  Read along.l
+  NPrint along.l,": bin: ",Bin$(along),"  hex: ",Hex$(along)
+Next i
+
+
+DATA_BYTE:
+Data.b 120,127,0,-1,128, 255, 64
+
+DATA_LONG:
+Data.l 155,127,0,-1,128, 255, 256
+Stop
+End
