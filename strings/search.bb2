@@ -1,0 +1,33 @@
+; *** String searching - Instr_Example.bb2
+Restore DAT
+NPrint "Input a letter or word to search"
+; *** Input word to search
+SEARCH$=Edit$(40)
+; *** Convert to upper case
+SEARCH$=UCase$(SEARCH$)
+For A=1 To 6
+; *** Read data statements
+Read A$
+B$=UCase$(A$)
+; *** Does string exist?
+If Instr(B$,SEARCH$)
+Print A$
+; *** Wait for a mouse click
+MouseWait
+End
+End If
+Next A
+; *** Unsuccessful search
+NPrint "No match found"
+; *** Wait for a mouse click
+MouseWait
+; *** Return to Blitz Basic 2 editor
+End
+; *** Data to search
+DAT:
+Data$ "Blitz"
+Data$ "AMOS"
+Data$ "GFA"
+Data$ "Hisoft"
+Data$ "Amiga"
+Data$ "Spectrum"

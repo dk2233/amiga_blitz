@@ -1,0 +1,44 @@
+; Otwarcie prostego ekranu i okna, aby Blitz miał aktywny kontekst
+;Screen 0,3+8
+;ScreensBitMap 0,0
+;BitMapOutput 0
+;WBenchWindow 0, 50, 50, 400, 250, "Wybór pliku"
+WbToScreen 0
+WBenchToFront_
+Window 0,0,0,350,150,$0001,"Program",1,0
+
+MaxLen PATH$=160
+MaxLen FILENAME$=64
+A$=FileRequest$("Select a file",PATH$,FILENAME$)
+;Locate 0,5
+; *** Output selected file
+NPrint A$
+; *** Wait for a mouse click
+; *** Return to Blitz Basic 2 editor
+Print "give string>"
+S1$ = Edit$(40)
+NPrint "given string>",S1$
+Print "give number of characters>"
+no_left=Edit(10)
+NPrint "cut out from left of string:"
+NPrint Left$(S1$, no_left)
+NPrint "cut out from right of string:"
+
+
+NPrint Right$(S1$, no_left)
+
+NPrint "cut out from middle of string:"
+NPrint Mid$(S1$, no_left)
+
+NPrint "multiply by 5"
+mul$ = String$(S1$, 5)
+NPrint  mul$
+
+Print "Now test how to change a part of string with another one"+ Chr$(10)+"what part of given string to replace?>"
+rep$=Edit$(40)
+Print "with what?>"
+newone$=Edit$(40)
+NPrint Replace$(mul$, rep$, newone$)
+
+MouseWait
+End

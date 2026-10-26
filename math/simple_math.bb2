@@ -1,0 +1,16 @@
+; *** FloatMode examples- FloatMode.bb2
+A.f=180.57
+NPrint A," best guess"
+FloatMode 1
+NPrint A," exponential"
+FloatMode -1
+NPrint A," standard"
+
+NPrint 2^8
+aa.w=10
+bb.w=4
+NPrint aa.w," modulo ",bb.w," = ", aa.w MOD bb.w
+NPrint "pi=",Pi
+
+MouseWait
+End

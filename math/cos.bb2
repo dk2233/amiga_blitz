@@ -1,0 +1,19 @@
+; *** Cosine wave- Cos.bb2
+; *** Define palette
+PalRGB 0,0,0,0,0
+PalRGB 0,1,13,13,13
+; *** Open BLITZ mode display
+BLITZ
+BitMap 0,320,DispHeight,1
+Slice 0,44,320,DispHeight,$fff8,1,8,2,320,320
+Use Palette 0
+Show 0
+; *** Draw line at centre of cosine wave
+Line 0,100,320,100,1
+; *** Plot simple cosine wave
+For A=1 To 3000
+Plot 10+A/10,Cos(Pi*2*A/1000)*80+100,1
+Plot 10+A/10,Sin(Pi*2*A/1000)*80+100,5
+Next
+MouseWait
+End
