@@ -1,0 +1,18 @@
+; *** SetInt example 1 - SetInt1.bb2
+BLITZ
+BitMap 0,320,256,3
+Slice 0,44,3
+Show 0
+; *** Create background task
+SetInt 5
+Let A+1
+Poke.w $dff180,A
+End SetInt
+; *** Main program
+For B=1 To 600
+Circlef Rnd(320),Rnd(200)+50,Rnd(20)+10,Rnd(5)+1
+Vwait 1
+Next B
+; *** Wait for a mouse click
+MouseWait
+End
